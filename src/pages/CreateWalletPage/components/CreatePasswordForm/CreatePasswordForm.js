@@ -8,6 +8,7 @@ import {
   Button,
   Grid,
   FormHelperText,
+  Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -40,12 +41,14 @@ const CreatePasswordForm = ({ onNext }) => {
   }
 
   const onSubmit = (data) => {
-    console.log(data)
-    onNext()
+    onNext(data.password)
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Typography variant='h5' component={'div'} style={{ fontWeight: 'bold' }}>
+        Create password
+      </Typography>
       <FormControl
         error={errors.password ? true : false}
         fullWidth

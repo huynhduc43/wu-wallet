@@ -11,7 +11,7 @@ const globalTheme = createTheme({
     secondary: {
       light: '#ffbd45',
       main: '#fb8c00',
-      dark: '#c25e00z',
+      dark: '#c25e00',
       contrastText: '#fff',
     },
   },
