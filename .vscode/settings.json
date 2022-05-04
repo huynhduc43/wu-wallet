@@ -1,0 +1,20 @@
+{
+  "javascript.validate.enable": true,
+  "javascript.format.enable": true,
+  "typescript.validate.enable": true,
+  "typescript.format.enable": true,
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "workbench.iconTheme": "vscode-icons",
+  "prettier.tabWidth": 2,
+  "prettier.semi": false,
+  "editor.tabSize": 2,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.fontFamily": "Menlo for Powerline"
+}
