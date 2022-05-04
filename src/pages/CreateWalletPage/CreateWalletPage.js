@@ -28,7 +28,7 @@ const CreateWalletPage = () => {
       <Grid container justifyContent={'center'} alignItems='center'>
         <Grid item xs={12} textAlign='center'>
           <Typography variant='h4' component={'div'}>
-            CreateWallet a new wallet
+            Create a new wallet
           </Typography>
           <Typography variant='body1' component={'div'} mt={2}>
             Please select a method to create a new wallet
@@ -36,7 +36,9 @@ const CreateWalletPage = () => {
           <Typography variant='body1' component={'div'}>
             Already have a wallet?{' '}
             <Link to={'/' + Routes.home.routes.accessWallet.path}>
-              Access Wallet
+              <Typography color='secondary' component='u'>
+                Access Wallet
+              </Typography>
             </Link>
           </Typography>
         </Grid>

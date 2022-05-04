@@ -1,5 +1,5 @@
-import { Grid, Stack, Typography } from '@mui/material'
 import React from 'react'
+import { Grid, Stack, Typography } from '@mui/material'
 import WarningOutlinedIcon from '@mui/icons-material/WarningOutlined'
 import { SoftwareMethodGrid, WarningTypography } from './styles'
 
@@ -30,8 +30,7 @@ const SoftwareMethod = ({ onClickOpen }) => {
         </Stack>
 
         <Typography variant='body1' component={'div'} mt={1}>
-          Software Methods Like Keystore File And Mnemonic Phrase Should Only Be
-          Used In Offline Settings By Experienced Users.
+          Keystore Files, Mnemonic Phrase, Private Key
         </Typography>
       </Grid>
     </SoftwareMethodGrid>
