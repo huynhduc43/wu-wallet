@@ -46,9 +46,9 @@ const getPublickKeyFromWallet = (privateKey) => {
 }
 
 const createKeystoreFile = (password) => {
-  const privateKey = genPrivateKey(password)
-  const publicKey = getPublickKeyFromWallet(privateKey)
   const currentDate = new Date().toUTCString()
+  const privateKey = genPrivateKey(password, currentDate)
+  const publicKey = getPublickKeyFromWallet(privateKey)
   const obj = {
     privatekey: privateKey,
     address: publicKey,
@@ -58,7 +58,7 @@ const createKeystoreFile = (password) => {
     type: 'text/plain;charset=utf-8',
   })
 
-  return { blob, fileName: currentDate + '.' + publicKey }
+  return { blob, fileName: currentDate + '.' + publicKey + '.txt' }
 }
 
 export {

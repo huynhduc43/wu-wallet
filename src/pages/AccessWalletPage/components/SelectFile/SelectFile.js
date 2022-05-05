@@ -16,7 +16,7 @@ const SelectFile = ({ onFileChange }) => {
           component={'div'}
           style={{ fontWeight: 'bold' }}
         >
-          Download keystore file
+          Select your keystore file
         </Typography>
         <Typography variant='body1' component={'div'}>
           Please select keystore file that unlocks your wallet.

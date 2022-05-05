@@ -1,9 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { Routes } from 'routes/routes'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { Grid, Typography } from '@mui/material'
 
 import { genPrivateKey } from 'blockchain'
+import { accessWallet } from 'redux/userSlice'
 import FullScreenDialog from 'components/Dialogs/FullscreenDialog/FullScreenDialog'
 
 import SoftwareMethod from './components/SoftwareMethod'
@@ -12,9 +14,11 @@ import AccessWithKeystoreFile from './components/AccessWithKeystoreFile/AccessWi
 
 const AccessWalletPage = () => {
   const [open, setOpen] = useState(false)
-  const [walletInfo, setWalletInfo] = useState(null)
-  const [openKeystoreFileProgess, setOpenKeystoreFileProgress] = useState(false)
+  const [info, setInfo] = useState({})
   const [wrongPassErr, setWrongPassErr] = useState('')
+  const [openKeystoreFileProgess, setOpenKeystoreFileProgress] = useState(false)
+
+  const dispatch = useDispatch()
 
   const handleClickOpen = useCallback(() => {
     setOpen(true)
@@ -28,30 +32,26 @@ const AccessWalletPage = () => {
     setOpenKeystoreFileProgress((prevState) => !prevState)
   }, [])
 
-  const handleSelectFile = useCallback((file) => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const text = e.target.result
-      setWalletInfo(JSON.parse(text))
-    }
-    reader.readAsText(file)
-  }, [])
-
-  const handleCheckPassword = useCallback(
-    () => (password) => {
-      if (
-        genPrivateKey(password, walletInfo?.currentdate) ===
-        walletInfo?.privatekey
-      ) {
-        console.log('Success')
-        setWrongPassErr('')
-        // Redirect
-      } else {
-        setWrongPassErr('Wrong password!')
+  const handleSelectFile = async (e) => {
+    return await new Promise((resolve) => {
+      const reader = new FileReader()
+      reader.onload = async (e) => {
+        const text = e.target.result
+        setInfo(JSON.parse(text))
+        resolve(text)
       }
-    },
-    [walletInfo],
-  )
+      reader.readAsText(e.target.files[0])
+    })
+  }
+
+  const handleCheckPassword = () => (password) => {
+    if (genPrivateKey(password, info?.currentdate) === info?.privatekey) {
+      dispatch(accessWallet(info))
+      setWrongPassErr('')
+    } else {
+      setWrongPassErr('Wrong password!')
+    }
+  }
 
   return (
     <>

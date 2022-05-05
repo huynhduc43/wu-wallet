@@ -33,8 +33,8 @@ const KeystoreFileProgress = ({
     setActiveStep(0)
   }
 
-  const onFileChange = (e) => {
-    onSelectFile(e.target.files[0])
+  const onFileChange = async (e) => {
+    await onSelectFile(e)
     handleNext()
   }
 
