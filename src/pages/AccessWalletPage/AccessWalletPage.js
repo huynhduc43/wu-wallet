@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { Routes } from 'routes/routes'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Grid, Typography } from '@mui/material'
 
@@ -19,6 +19,7 @@ const AccessWalletPage = () => {
   const [openKeystoreFileProgess, setOpenKeystoreFileProgress] = useState(false)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleClickOpen = useCallback(() => {
     setOpen(true)
@@ -48,6 +49,7 @@ const AccessWalletPage = () => {
     if (genPrivateKey(password, info?.currentdate) === info?.privatekey) {
       dispatch(accessWallet(info))
       setWrongPassErr('')
+      navigate(Routes.wallet.path, { replace: true })
     } else {
       setWrongPassErr('Wrong password!')
     }

@@ -3,10 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   privateKey: '',
   address: '',
+  coin: 0,
 }
 
 export const userSlice = createSlice({
-  name: 'counter',
+  name: 'walletInfo',
   initialState,
   reducers: {
     accessWallet: (state, action) => {

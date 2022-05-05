@@ -62,6 +62,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ## References
 
 - [UI](https://www.myetherwallet.com/wallet/create)
+- [Dashboard](https://github.com/mui/material-ui/tree/v5.6.4/docs/data/material/getting-started/templates/dashboard)
 - [CryptoJS](https://cryptojs.gitbook.io/docs)
 - [How to convert WordArray to ArrayBuffer or TypedArray](https://github.com/brix/crypto-js/issues/274)
 

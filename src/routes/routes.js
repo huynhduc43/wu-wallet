@@ -1,7 +1,12 @@
 import React from 'react'
 import { Navigate, Route } from 'react-router-dom'
 
-import { HomePage, CreateWalletPage, AccessWalletPage } from 'pages'
+import {
+  HomePage,
+  CreateWalletPage,
+  AccessWalletPage,
+  ManageWallet,
+} from 'pages'
 import { Introduction } from 'pages/HomePage/containers'
 
 const DefaultComponent = () => {
@@ -9,6 +14,16 @@ const DefaultComponent = () => {
 }
 
 export const Routes = {
+  wallet: {
+    path: '/wallet',
+    element: ManageWallet,
+    routes: {
+      default: {
+        path: '*',
+        element: DefaultComponent,
+      },
+    },
+  },
   home: {
     path: '/',
     element: HomePage,
