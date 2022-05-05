@@ -15,6 +15,7 @@ The Blockchain project.
 
 ```
   git clone https://github.com/huynhduc43/wu-wallet.git
+  cd wu-wallet
   yarn install
 ```
 
@@ -57,7 +58,12 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Features
 
-- [ ] Create wallet
+- [x] Create wallet
+- [x] Access wallet
+- [ ] Manage wallet
+- [ ] View transaction histories
+- [ ] Send coin
+- [ ] Use Proof Of Work/ Proof Of Stake/...
 
 ## References
 
