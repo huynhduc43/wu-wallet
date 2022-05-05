@@ -1,25 +1,26 @@
+import { ThemeProvider } from '@mui/material'
+import globalTheme from 'assets/themes/globalTheme'
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Routes as RoutesDom } from 'react-router-dom'
+import { RenderRoutes, Routes } from 'routes/routes'
 
 function App() {
+  const user = {
+    userInfo: {
+      username: '',
+      email: '',
+    },
+    token: '',
+    isAuth: false,
+    isAdmin: false,
+  }
+
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={globalTheme}>
+      <div className='App'>
+        <RoutesDom>{RenderRoutes(Routes, user, location)}</RoutesDom>
+      </div>
+    </ThemeProvider>
   )
 }
 
